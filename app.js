@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://admin-surya:honeysingh@learn1.gnjfv.mongodb.net/todolistDB', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/todolistDB', {useNewUrlParser: true})
 const todolistSchema = mongoose.Schema({name: String})
 const Todolist = mongoose.model('TodoList', todolistSchema);
 const date = require(__dirname + '/date.js');
