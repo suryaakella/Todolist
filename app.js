@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/todolistDB', {useNewUrlParser: true})
+mongoose.connect('mongodb+srv://admin-surya:honeysingh@learn1.gnjfv.mongodb.net/todolistDB', {useNewUrlParser: true})
 const todolistSchema = mongoose.Schema({name: String})
 const Todolist = mongoose.model('TodoList', todolistSchema);
 const date = require(__dirname + '/date.js');
@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 const listSchema = mongoose.Schema({name: String, items:[todolistSchema]})
-const item1 = new Todolist({name: "<-Check to delete the item"})
+const item1 = new Todolist({name: "<- Check to delete the item"})
 const defaultitems = [item1];
 const List = mongoose.model("List", listSchema);
 
@@ -89,7 +89,10 @@ app.get('/:customListName', function(req, res){
 })
 
 
-
-app.listen(3000, function(){
+let port  = process.env.PORT;
+if(port == null || port ==""){
+    port = 3000;
+}
+app.listen(port, function(){
 console.log("server started at port 3000");
 })
