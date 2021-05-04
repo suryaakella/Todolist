@@ -1,0 +1,25 @@
+
+
+    <%- include("header") -%>
+    <div class="box" id="heading">
+        <h1> <%= today %> </h1>
+      </div>
+    <div class="container">
+    <ul>
+<%    for(let i = 0; i < todolist.length; i++){ %>
+    <form action="/delete" method="post">
+    <div class="item">
+    <input type="checkbox" name="checkbox" value="<%= todolist[i]._id %>" onchange="this.form.submit()">    
+    <!-- <input type="checkbox" name="checkbox" value="<%= todolist._id%>" onChange="this.form.submit()"> -->
+    <p><%= todolist[i].name %> </p>
+</div>    
+<input type="hidden" name="list" value=<%= today %> >
+</form>   
+<%    } %>
+    </ul>
+    <form action="/" method="post" class="item">
+    <input type="text" name="newitem" placeholder="Add a New Item ->" autocomplete="off">
+    <button type="submit" name= "list" value=<%= today %>>+</button>
+    </form>
+    </div>
+    <%- include("footer") -%>
