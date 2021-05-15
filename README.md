@@ -1,8 +1,9 @@
+
 # Todolist
 
 Deployed at: https://still-river-03772.herokuapp.com/
 
-![alt text](/home/surya/Pictures/Screenshot from 2021-05-15 15-42-14.png)
+![Screenshot from 2021-05-15 15-42-14](https://user-images.githubusercontent.com/47234885/118356914-072bd600-b595-11eb-98c2-9f98af5030b5.png)
 
 Features:
 
