@@ -2,6 +2,8 @@
 
 Deployed at: https://still-river-03772.herokuapp.com/
 
+![alt text](/home/surya/Pictures/Screenshot from 2021-05-15 15-42-14.png)
+
 Features:
 
 1. Manage your daily tasks.
