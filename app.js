@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
+const { body, validationResult } = require('express-validator');
 mongoose.connect('mongodb://localhost:27017/todolistDB', {useNewUrlParser: true})
 const todolistSchema = mongoose.Schema({name: String})
 const Todolist = mongoose.model('TodoList', todolistSchema);
@@ -26,11 +27,15 @@ app.get('/', function(req, res){
     })    
 })
 
-app.post('/', function(req, res){
+app.post('/',body('newitem').isLength({ min: 1 }), function(req, res){
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const item = req.body.newitem;
     const customListName = req.body.list;
     const todolistitem = new Todolist({name: item});
-
+    if(item.length == 0){}
     if(customListName === "Today"){
     todolistitem.save();
     res.redirect('/');
